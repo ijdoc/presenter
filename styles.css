@@ -1,0 +1,41 @@
+/* The overlay */
+#pointer-surface {
+  filter: invert(100%) hue-rotate(180deg) contrast(80%) brightness(120%) !important;
+  background-color: transparent;
+  z-index: 99999999999999999999;
+  position: fixed;
+  top: 0;
+  left: -999px;
+  overflow: hidden;
+}
+
+#pointer-led {
+  border: solid 1px transparent;
+  border-radius: 12px;
+  background-color: #7777;
+  position: absolute;
+}
+
+/* The box highlight style */
+.outer-box {
+  border-color: #222222 !important;
+  z-index: 99999999999999999999;
+  opacity: 1.0;
+  position: fixed;
+  transition: opacity 4s;
+  pointer-events: none;
+}
+
+.night-mode .outer-box {
+  border-color: #ffffff !important;
+}
+
+.inner-box {
+  border-color: #FF93AC !important;
+  position: relative;
+}
+
+.night-mode .inner-box {
+  border-color: rgb(255, 61, 90) !important;
+}
+
