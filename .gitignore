@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+
+# Saved copies of real pages (logged-in Forge, W&B, …) for local selector work. Never commit
+# them: this repo is public. Committed fixtures go in test/fixtures/ and must be synthetic.
+test/fixtures/private/
