@@ -1,0 +1,70 @@
+/* A Chrome popup that grows never shrinks back within a session (tight#108), so the
+   document width is pinned rather than left to content. */
+html,
+body {
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  margin: 0;
+}
+
+body {
+  font: 13px/1.4 system-ui, -apple-system, sans-serif;
+  color: #222222;
+  background-color: #ffffff;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.version {
+  color: #777777;
+  font-size: 11px;
+}
+
+h2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #777777;
+  margin: 12px 0 6px;
+}
+
+.switch {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.switch input {
+  margin-top: 2px;
+}
+
+.switch small {
+  display: block;
+  color: #777777;
+}
+
+.empty {
+  color: #777777;
+  margin: 4px 0 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #eeeeee;
+    background-color: #202124;
+  }
+}
