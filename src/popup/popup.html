@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>presenter</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script type="module" src="popup.js"></script>
+  </head>
+  <body>
+    <header>
+      <span class="name">presenter</span>
+      <span class="version" id="version"></span>
+    </header>
+
+    <section>
+      <h2>Presenting</h2>
+      <label class="switch">
+        <input type="checkbox" data-presenting="pointer" />
+        <span>Pointer &amp; highlights <small>hold Shift and drag</small></span>
+      </label>
+    </section>
+
+    <section>
+      <h2>Enhancements</h2>
+      <label class="switch">
+        <input type="checkbox" id="show-proposed" />
+        <span>Show proposed <small id="shortcut"></small></span>
+      </label>
+      <div id="enhancements"></div>
+      <p class="empty" id="empty" hidden>No enhancements for this page.</p>
+    </section>
+  </body>
+</html>

@@ -1,38 +1,71 @@
 {
   "manifest_version": 3,
   "name": "presenter",
-  "version": "1.0.0",
-  "permissions": ["activeTab", "tabs"],
+  "version": "1.1.0",
+  "description": "Pointer and fading highlights for live demos, plus toggleable UX enhancements for before/after clips.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzSA8AU/9KdGceK/m1e9ke5Gi7B4HObymgejDydm3gAlJXrqcAys1TV5HsphZF/XG4ZNew/Ui2EzRGpJ3ryN9vP90EklOAgHIT4QLSL8zwTarwubELnoLHhqDFtxX/xe8fBb7zQsbXcZbcPHHlj0Fm2qkZgWHjrR1M+6/YzrxkFWOl0tgPibihEarn33hCCBvej/8AXDjF0JEV+farFxSc1f7jVNAgSe7O976GKlrXY6mYurJnXGv6G4EhPG1VGrsrVY/HcKHR3dotAcgp4qPIMHSNOfScxc75UWUKJarqCXKlX5NL9H3Vb84MmMwpOvo01SpDJZc/ZQRrxPOtMCRzQIDAQAB",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
   "icons": {
     "16": "presenter16.png",
     "48": "presenter48.png",
     "128": "presenter128.png"
   },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "presenter16.png",
+      "48": "presenter48.png",
+      "128": "presenter128.png"
+    }
+  },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "commands": {
+    "toggle-proposed": {
+      "suggested_key": {
+        "default": "Alt+Shift+E"
+      },
+      "description": "Flip between the shipped page and the proposed one"
+    }
   },
   "content_scripts": [
     {
       "matches": [
         "https://*.wandb.ai/*",
+        "https://forge.coreweave.com/*",
         "https://*.github.com/*",
         "http://workhorse:8888/*",
         "http://localhost:8080/*"
       ],
-      "js": ["content.js"],
-      "run_at": "document_end"
+      "exclude_globs": [
+        "https://wandb.ai/site",
+        "https://wandb.ai/site/*"
+      ],
+      "js": [
+        "src/content/loader.js"
+      ],
+      "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["styles.css"],
+      "resources": [
+        "src/content/*",
+        "src/lib/*",
+        "enhancements/*"
+      ],
       "matches": [
         "https://*.wandb.ai/*",
+        "https://forge.coreweave.com/*",
         "https://*.github.com/*",
         "http://workhorse:8888/*",
         "http://localhost:8080/*"
-      ],
-      "exclude_globs": ["https://wandb.ai/site", "https://wandb.ai/site/*"]
+      ]
     }
   ]
 }

@@ -1,0 +1,49 @@
+# The checks this repo has, run by something other than a person remembering.
+#
+# It cannot replace the manual step in CONTRIBUTING.md — loading the unpacked extension in
+# Chrome and watching it work on the live page — because a runner has no logged-in Forge.
+
+name: CI
+
+on:
+  # Limited to main on purpose: unrestricted, every push to a PR branch would run twice.
+  push:
+    branches: [main]
+  pull_request:
+
+# Least privilege: these checks read the tree and nothing else.
+permissions:
+  contents: read
+
+# A new push to the same branch makes the previous run's answer irrelevant.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v7
+
+      # Pinned rather than inheriting the runner's default, which moves without anyone
+      # deciding it should. Matches engines.node in package.json.
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - run: npm ci
+
+      # First because it is the cheapest thing that can fail.
+      - name: Lint
+        run: npm run lint
+
+      - name: Tests
+        run: npm test
+
+      - name: ADR log is current
+        run: python3 scripts/generate-adr-log.py --check

@@ -1,0 +1,21 @@
+{
+  "name": "presenter",
+  "private": true,
+  "description": "Dev tooling only. The extension loads unpacked from the repo root with no build; manifest.json holds the version.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "postinstall": "node -e \"require('fs').writeFileSync('node_modules/.metadata_never_index', '')\"",
+    "lint": "eslint . --max-warnings 0",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
+    "jsdom": "^30.1.2",
+    "vitest": "^5.0.3"
+  }
+}
