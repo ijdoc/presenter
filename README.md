@@ -31,7 +31,7 @@ On by default. For a readable shared screen, use Chrome's own zoom (`Cmd` `+`), 
 1. Start recording (Loom, or any screen recorder).
 1. Press **Alt+Shift+E** to flip between the shipped page and the proposed one. Change the shortcut at `chrome://extensions/shortcuts`; the popup shows the current one.
 
-While any enhancement is showing, an **Enhanced** badge sits in the top-right corner, so whoever watches the clip knows which version they are seeing. With every enhancement off — or the page flipped to *as shipped* — there is no badge and the page is exactly what shipped.
+While any enhancement is showing, an **Enhanced** badge sits at the top centre of the page, so whoever watches the clip knows which version they are seeing. With every enhancement off — or the page flipped to *as shipped* — there is no badge and the page is exactly what shipped.
 
 New enhancements are added as files in [`enhancements/`](enhancements/index.js) — see [`CONTRIBUTING.md`](CONTRIBUTING.md) and [ADR-0001](docs/adr/0001-enhancements-are-versioned-files.md).
 
