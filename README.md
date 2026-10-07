@@ -22,6 +22,7 @@ Click the presenter icon in the toolbar for its switches. Settings apply to ever
 ### Presenting
 
 - **Pointer & highlights** — a small grey circle follows your pointer. Hold **Shift** (the circle turns red) and drag to draw a rectangle that fades after a few seconds. While Shift is held, clicks draw instead of reaching the page.
+
 On by default. For a readable shared screen, use Chrome's own zoom (`Cmd` `+`), which it remembers per site.
 
 ### Recording a UX proposal
