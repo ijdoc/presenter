@@ -14,12 +14,13 @@ import { createRelabel } from "../src/lib/relabel.js";
 
 const CLASS = "presenter-sandbox-ended";
 
-// A ring with a diagonal bar, like the European no-stopping sign. Drawn as a mask so it takes
+// A ring with a short horizontal dash, like the European no-entry sign — calmer than a
+// diagonal bar, and read as "ended" rather than "error". Drawn as a mask so it takes
 // the pill's text colour, at the same 24-unit grid and size as the checkmark it replaces.
 const ENDED_ICON = encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">' +
     '<circle cx="12" cy="12" r="9" fill="none" stroke="black" stroke-width="2"/>' +
-    '<path d="M5.6 5.6 18.4 18.4" stroke="black" stroke-width="2" stroke-linecap="round"/>' +
+    '<path d="M8 12h8" stroke="black" stroke-width="2" stroke-linecap="round"/>' +
     "</svg>",
 );
 
