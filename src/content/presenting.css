@@ -16,9 +16,11 @@
   position: absolute;
 }
 
-/* The box highlight style */
+/* The box highlight style: CoreWeave Primary Blue outer band, white inner line. One dark and
+   one light tone keep the ring visible on any background, so the same colours serve light and
+   dark themes alike. */
 .outer-box {
-  border-color: #222222 !important;
+  border-color: #0541e9 !important;
   z-index: 99999999999999999999;
   opacity: 1.0;
   position: fixed;
@@ -26,19 +28,10 @@
   pointer-events: none;
 }
 
-.night-mode .outer-box {
-  border-color: #ffffff !important;
-}
-
 .inner-box {
-  border-color: #FF93AC !important;
+  border-color: #ffffff !important;
   position: relative;
 }
-
-.night-mode .inner-box {
-  border-color: rgb(255, 61, 90) !important;
-}
-
 
 /* The Enhanced badge — top centre, clear of Loom's default bottom-left camera bubble */
 #presenter-enhanced-badge {
