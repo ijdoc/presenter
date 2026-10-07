@@ -29,7 +29,7 @@ The two views of a page: **as shipped** is the real product with every enhanceme
 _Avoid_: before/after as nouns for the views (they describe the clip, not the page), original, modified, live.
 
 **Enhanced badge**:
-The small "Enhanced" tag in the top-right corner, present exactly while the **proposed** view differs from **as shipped** — so a viewer of a clip always knows which one they are seeing.
+The small "Enhanced" tag at the top centre of the page, present exactly while the **proposed** view differs from **as shipped** — so a viewer of a clip always knows which one they are seeing.
 _Avoid_: watermark, label, indicator.
 
 ## Language — both

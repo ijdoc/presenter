@@ -1,6 +1,6 @@
 /**
- * The Enhanced badge: a small top-right tag shown only while the page differs from what
- * shipped. Top-right because Loom's camera bubble sits bottom-left by default.
+ * The Enhanced badge: a small top-centre tag shown only while the page differs from what
+ * shipped. At the top because Loom's camera bubble sits bottom-left by default.
  */
 
 export const BADGE_ID = "presenter-enhanced-badge";
