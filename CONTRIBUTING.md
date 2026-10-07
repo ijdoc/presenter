@@ -78,7 +78,7 @@ If you already fetched, `-d` fails with *"not fully merged"*: confirm the PR mer
 
 | Scope | Surface |
 | --- | --- |
-| `presenting` | pointer, highlights, demo zoom |
+| `presenting` | pointer and highlights |
 | `enhancements` | the registry and individual enhancements |
 | `popup` | the toolbar popup |
 | `content` | the content-script entry point, enhancer and badge |
@@ -106,7 +106,7 @@ Bugs cluster here — scrutinise changes that touch them:
 - **Single-page routing.** Forge and W&B change the URL and content without reloading. The content script re-renders on DOM changes; `apply` runs repeatedly and must be idempotent, or our own edits retrigger the observer in a loop.
 - **Selectors against third-party markup.** They break without notice when the site ships. Test against a hand-written fixture in `test/fixtures/`, never a real saved page (see *Public repository*).
 - **The manifest.** A content script, popup or module import that does not resolve fails silently in Chrome. `test/manifest.test.js` checks the paths and that every module is a web-accessible resource.
-- **Permissions.** Presenter holds `activeTab`, `tabs` and `storage` and injects only on the sites in `manifest.json`. Adding a permission or a target site needs a reason in the PR.
+- **Permissions.** Presenter holds `activeTab` and `storage` and injects only on the sites in `manifest.json`. Adding a permission or a target site needs a reason in the PR.
 
 ## Documentation
 

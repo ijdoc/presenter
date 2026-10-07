@@ -20,17 +20,21 @@ const forgeUrl = "https://forge.coreweave.com/org/sandboxes";
 describe("normalizeSettings", () => {
   it("returns the defaults when nothing is stored", () => {
     expect(normalizeSettings(undefined)).toEqual({
-      presenting: { pointer: true, zoom: true },
+      presenting: { pointer: true },
       enhancements: {},
       showProposed: true,
     });
   });
 
   it("keeps stored values and fills in what is missing", () => {
-    const settings = normalizeSettings({ presenting: { zoom: false }, enhancements: { "forge-one": true } });
-    expect(settings.presenting).toEqual({ pointer: true, zoom: false });
+    const settings = normalizeSettings({ presenting: { pointer: false }, enhancements: { "forge-one": true } });
+    expect(settings.presenting).toEqual({ pointer: false });
     expect(settings.enhancements).toEqual({ "forge-one": true });
     expect(settings.showProposed).toBe(true);
+  });
+
+  it("drops settings from removed features", () => {
+    expect(normalizeSettings({ presenting: { pointer: true, zoom: true } }).presenting).toEqual({ pointer: true });
   });
 
   it("does not hand out the frozen defaults", () => {
@@ -74,7 +78,7 @@ describe("badgeVisible", () => {
 
 describe("setPresenting", () => {
   it("changes one feature and leaves the rest", () => {
-    const settings = setPresenting(normalizeSettings(undefined), "zoom", false);
-    expect(settings.presenting).toEqual({ pointer: true, zoom: false });
+    const settings = setPresenting(normalizeSettings(undefined), "pointer", false);
+    expect(settings.presenting).toEqual({ pointer: false });
   });
 });

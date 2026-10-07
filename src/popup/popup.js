@@ -45,6 +45,7 @@ async function init() {
     ? `${flip.shortcut} flips before/after`
     : "set a shortcut at chrome://extensions/shortcuts";
 
+  // Opening the popup grants activeTab, which is what makes tab.url readable here.
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   const settings = await readSettings();
 

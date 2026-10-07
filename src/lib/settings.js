@@ -15,7 +15,7 @@ export const STORAGE_KEY = "settings";
  * every enhancement starts off and must be turned on deliberately.
  */
 export const DEFAULT_SETTINGS = Object.freeze({
-  presenting: Object.freeze({ pointer: true, zoom: true }),
+  presenting: Object.freeze({ pointer: true }),
   enhancements: Object.freeze({}),
   showProposed: true,
 });
@@ -24,12 +24,16 @@ export const DEFAULT_SETTINGS = Object.freeze({
  * Fill a stored (possibly partial or missing) settings object with defaults.
  *
  * @param {Object|undefined} stored - The value read from storage
- * @returns {{presenting: {pointer: boolean, zoom: boolean}, enhancements: Object<string, boolean>, showProposed: boolean}}
+ * @returns {{presenting: {pointer: boolean}, enhancements: Object<string, boolean>, showProposed: boolean}}
  */
 export function normalizeSettings(stored) {
   const source = stored && typeof stored === "object" ? stored : {};
   return {
-    presenting: { ...DEFAULT_SETTINGS.presenting, ...(source.presenting || {}) },
+    // Only known features are kept, so a setting from a removed feature (pre-1.1 demo zoom)
+    // does not linger in what the popup reads.
+    presenting: {
+      pointer: typeof source.presenting?.pointer === "boolean" ? source.presenting.pointer : DEFAULT_SETTINGS.presenting.pointer,
+    },
     enhancements: { ...(source.enhancements || {}) },
     showProposed: typeof source.showProposed === "boolean" ? source.showProposed : DEFAULT_SETTINGS.showProposed,
   };
@@ -98,7 +102,7 @@ export function setEnhancement(settings, id, enabled) {
  * Switch one presenting feature on or off.
  *
  * @param {Object} settings - Normalized settings
- * @param {"pointer"|"zoom"} feature - Presenting feature
+ * @param {"pointer"} feature - Presenting feature
  * @param {boolean} enabled - New state
  * @returns {Object} New settings
  */

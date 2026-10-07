@@ -18,10 +18,6 @@ _Avoid_: active, drawing mode, enabled.
 A rectangle drawn by dragging while **armed**, which fades out on its own a few seconds later. One drag makes one highlight; highlights are never saved or edited.
 _Avoid_: annotation (implies it persists), box, selection.
 
-**Demo zoom**:
-The fixed zoom the extension applies on load so a shared screen is readable — only when the window holds exactly one tab, so a normal browsing window is left alone.
-_Avoid_: scaling, magnify.
-
 ## Language — UX proposals
 
 **Enhancement**:
@@ -50,7 +46,5 @@ _Avoid_: allowed site, whitelist.
 
 > **Dev:** If I hold Shift and click a button on the page, does the button fire?
 > **jdoc:** No — while you're **armed** the **pointer** swallows mouse events, so you get a **highlight**, not a click. Let go of Shift and the page behaves normally again.
-> **Dev:** And the zoom jumped to 130% in my main browser window.
-> **jdoc:** It shouldn't have — **demo zoom** only applies when the window has a single tab. Open the demo in its own window and keep browsing elsewhere.
 > **Dev:** I switched on an **enhancement**, but the page looks the same.
 > **jdoc:** Check the **Enhanced badge**. No badge means you're on **as shipped** — press the shortcut to flip to **proposed**. If the badge is there and nothing changed, the site's markup moved and the enhancement's selector no longer matches.

@@ -11,8 +11,6 @@ import { setBadge } from "./badge.js";
 import { createEnhancer } from "./enhancer.js";
 import { createPresenting } from "./presenting.js";
 
-const DEMO_ZOOM = 1.3;
-
 export async function main() {
   const { version } = chrome.runtime.getManifest();
   console.log(`presenter ${version} loaded from ${chrome.runtime.getURL("")}`);
@@ -26,18 +24,9 @@ export async function main() {
   const presenting = createPresenting(document, window);
   const enhancer = createEnhancer(document);
   let settings = normalizeSettings((await chrome.storage.local.get(STORAGE_KEY))[STORAGE_KEY]);
-  let zoomApplied = false;
 
   const render = () => {
     presenting.setEnabled(settings.presenting.pointer);
-
-    if (settings.presenting.zoom && !zoomApplied) {
-      chrome.runtime.sendMessage({ action: "setZoomLevel", zoomLevel: DEMO_ZOOM });
-      zoomApplied = true;
-    } else if (!settings.presenting.zoom && zoomApplied) {
-      chrome.runtime.sendMessage({ action: "setZoomLevel", zoomLevel: 0 });
-      zoomApplied = false;
-    }
 
     const active = activeEnhancements(settings, ENHANCEMENTS, location.href);
     enhancer.sync(active);
