@@ -22,6 +22,10 @@ Ordinary git and GitHub practice — opening an issue, naming a branch, writing 
 
 See [`docs/security.md`](docs/security.md) for the extension's security model and a reviewer checklist.
 
+## When an enhancement is retired
+
+An enhancement is a proposal, so it has an end. **Retire it once the product ships an equivalent** — delete its file and its registry entry in a small PR — or when the proposal is declined and it no longer earns its place in demos. Discussion with the product team about a proposal happens, and is tracked, **outside this repo**; nothing here links to it, and an enhancement's text does not record how it was received (see *Public repository* above).
+
 ## Workflow
 
 Issue → worktree → PR → squash-merge → **reload the extension from the primary checkout**.
