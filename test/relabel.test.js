@@ -15,19 +15,29 @@ describe("createRelabel", () => {
   it("relabels only matching elements with matching text", () => {
     relabel.apply(document);
     const [ended, running] = document.querySelectorAll(".status");
-    expect(ended.textContent).toBe("Stopped");
+    expect(ended.textContent.trim()).toBe("Stopped");
     expect(ended.classList.contains("is-ended")).toBe(true);
+    expect(ended.querySelector(".icon")).not.toBeNull();
     expect(running.textContent).toBe("running");
     expect(document.querySelector(".other").textContent).toBe("completed");
   });
 
-  it("restores the page exactly, child nodes included", () => {
+  it("restores the page exactly, keeping the same nodes", () => {
     const original = document.body.innerHTML;
-    const icon = document.querySelector(".icon");
+    const ended = document.querySelector(".status");
+    const nodes = [...ended.childNodes];
     relabel.apply(document);
+    expect([...ended.childNodes]).toEqual(nodes);
     relabel.revert(document);
     expect(document.body.innerHTML).toBe(original);
-    expect(document.querySelector(".icon")).toBe(icon);
+    expect([...ended.childNodes]).toEqual(nodes);
+  });
+
+  it("leaves an element alone when its text is nested deeper", () => {
+    document.body.innerHTML = `<span class="status"><b>completed</b></span>`;
+    const original = document.body.innerHTML;
+    relabel.apply(document);
+    expect(document.body.innerHTML).toBe(original);
   });
 
   it("is idempotent", () => {
@@ -48,8 +58,8 @@ describe("createRelabel", () => {
   it("relabels again when the page writes over our text in place", () => {
     relabel.apply(document);
     const ended = document.querySelector(".status");
-    ended.textContent = "completed";
+    ended.lastChild.data = "Completed";
     relabel.apply(document);
-    expect(ended.textContent).toBe("Stopped");
+    expect(ended.textContent.trim()).toBe("Stopped");
   });
 });
