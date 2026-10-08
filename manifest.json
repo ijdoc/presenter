@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "presenter",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Pointer and fading highlights for live demos, plus toggleable UX enhancements for before/after clips.",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzSA8AU/9KdGceK/m1e9ke5Gi7B4HObymgejDydm3gAlJXrqcAys1TV5HsphZF/XG4ZNew/Ui2EzRGpJ3ryN9vP90EklOAgHIT4QLSL8zwTarwubELnoLHhqDFtxX/xe8fBb7zQsbXcZbcPHHlj0Fm2qkZgWHjrR1M+6/YzrxkFWOl0tgPibihEarn33hCCBvej/8AXDjF0JEV+farFxSc1f7jVNAgSe7O976GKlrXY6mYurJnXGv6G4EhPG1VGrsrVY/HcKHR3dotAcgp4qPIMHSNOfScxc75UWUKJarqCXKlX5NL9H3Vb84MmMwpOvo01SpDJZc/ZQRrxPOtMCRzQIDAQAB",
   "permissions": [
