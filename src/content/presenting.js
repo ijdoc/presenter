@@ -19,6 +19,10 @@ export function createPresenting(doc, win) {
   const thickness = 15;
   const surfaceSize = 48;
   const pointerSize = 12;
+  // The pointer sits under a filter (invert, hue-rotate, contrast 80%, brightness 120%; see
+  // presenting.css) that washes any colour out. This input shows as rgb(105, 141, 242):
+  // CoreWeave Primary Blue #0541E9 washed by the same ~40% the original red was.
+  const ARMED_COLOR = "rgb(103, 141, 246)";
 
   const createStackDiv = (posX, posY) => {
     const index = divStack.length;
@@ -60,7 +64,7 @@ export function createPresenting(doc, win) {
     if (event.key === "Shift") {
       event.preventDefault();
       pointerSurface.style.pointerEvents = "all";
-      pointerLED.style.backgroundColor = "rgb(255, 61, 90)";
+      pointerLED.style.backgroundColor = ARMED_COLOR;
     }
   };
 
