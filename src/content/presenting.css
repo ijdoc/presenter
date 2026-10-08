@@ -1,6 +1,5 @@
 /* The overlay */
 #pointer-surface {
-  filter: invert(100%) hue-rotate(180deg) contrast(80%) brightness(120%) !important;
   background-color: transparent;
   z-index: 99999999999999999999;
   position: fixed;
@@ -12,13 +11,15 @@
 #pointer-led {
   border: solid 1px transparent;
   border-radius: 12px;
-  background-color: #7777;
+  background-color: #a1a1a177; /* idle: translucent grey */
   position: absolute;
 }
 
-/* The box highlight style */
+/* The box highlight style: CoreWeave Primary Blue outer band, white inner line. One dark and
+   one light tone keep the ring visible on any background, so the same colours serve light and
+   dark themes alike. */
 .outer-box {
-  border-color: #222222 !important;
+  border-color: #0541e9 !important;
   z-index: 99999999999999999999;
   opacity: 1.0;
   position: fixed;
@@ -26,19 +27,10 @@
   pointer-events: none;
 }
 
-.night-mode .outer-box {
-  border-color: #ffffff !important;
-}
-
 .inner-box {
-  border-color: #FF93AC !important;
+  border-color: #ffffff !important;
   position: relative;
 }
-
-.night-mode .inner-box {
-  border-color: rgb(255, 61, 90) !important;
-}
-
 
 /* The Enhanced badge — top centre, clear of Loom's default bottom-left camera bubble */
 #presenter-enhanced-badge {
@@ -49,7 +41,7 @@
   z-index: 2147483647;
   padding: 4px 10px;
   border-radius: 999px;
-  background-color: rgba(34, 34, 34, 0.85);
+  background-color: #0541e9; /* CoreWeave Primary Blue, solid so the white text reads at 7:1 */
   color: #ffffff;
   font: 600 12px/1.4 system-ui, -apple-system, sans-serif;
   letter-spacing: 0.02em;
