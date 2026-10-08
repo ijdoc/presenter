@@ -41,7 +41,7 @@
   z-index: 2147483647;
   padding: 4px 10px;
   border-radius: 999px;
-  background-color: rgba(5, 65, 233, 0.6); /* CoreWeave Primary Blue at 60%, as the armed pointer */
+  background-color: #0541e9; /* CoreWeave Primary Blue, solid so the white text reads at 7:1 */
   color: #ffffff;
   font: 600 12px/1.4 system-ui, -apple-system, sans-serif;
   letter-spacing: 0.02em;
