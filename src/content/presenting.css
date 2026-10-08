@@ -1,6 +1,5 @@
 /* The overlay */
 #pointer-surface {
-  filter: invert(100%) hue-rotate(180deg) contrast(80%) brightness(120%) !important;
   background-color: transparent;
   z-index: 99999999999999999999;
   position: fixed;
@@ -12,7 +11,7 @@
 #pointer-led {
   border: solid 1px transparent;
   border-radius: 12px;
-  background-color: #7777;
+  background-color: #a1a1a177; /* idle: translucent grey */
   position: absolute;
 }
 
@@ -42,7 +41,7 @@
   z-index: 2147483647;
   padding: 4px 10px;
   border-radius: 999px;
-  background-color: #0541e9; /* CoreWeave Primary Blue, as the highlight band */
+  background-color: rgba(5, 65, 233, 0.6); /* CoreWeave Primary Blue at 60%, as the armed pointer */
   color: #ffffff;
   font: 600 12px/1.4 system-ui, -apple-system, sans-serif;
   letter-spacing: 0.02em;

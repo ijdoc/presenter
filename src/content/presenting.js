@@ -19,10 +19,10 @@ export function createPresenting(doc, win) {
   const thickness = 15;
   const surfaceSize = 48;
   const pointerSize = 12;
-  // The pointer sits under a filter (invert, hue-rotate, contrast 80%, brightness 120%; see
-  // presenting.css) that washes any colour out. This input shows as rgb(105, 141, 242):
-  // CoreWeave Primary Blue #0541E9 washed by the same ~40% the original red was.
-  const ARMED_COLOR = "rgb(103, 141, 246)";
+  // CoreWeave Primary Blue #0541E9 at 60%: over a white page it reads rgb(105, 141, 242), the
+  // same wash the original red had under the old pointer filter.
+  const ARMED_COLOR = "rgba(5, 65, 233, 0.6)";
+  const IDLE_COLOR = "#a1a1a177";
 
   const createStackDiv = (posX, posY) => {
     const index = divStack.length;
@@ -71,7 +71,7 @@ export function createPresenting(doc, win) {
   const onKeyUp = (event) => {
     if (event.key === "Shift") {
       event.preventDefault();
-      pointerLED.style.backgroundColor = "#7777";
+      pointerLED.style.backgroundColor = IDLE_COLOR;
       pointerSurface.style.pointerEvents = "none";
     }
   };
