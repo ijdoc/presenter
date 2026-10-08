@@ -42,7 +42,7 @@
   z-index: 2147483647;
   padding: 4px 10px;
   border-radius: 999px;
-  background-color: rgba(34, 34, 34, 0.85);
+  background-color: #0541e9; /* CoreWeave Primary Blue, as the highlight band */
   color: #ffffff;
   font: 600 12px/1.4 system-ui, -apple-system, sans-serif;
   letter-spacing: 0.02em;
