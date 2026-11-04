@@ -15,6 +15,4 @@
  * Add the new file's export to the list below.
  */
 
-import { forgeSandboxStatus } from "./forge-sandbox-status.js";
-
-export const ENHANCEMENTS = [forgeSandboxStatus];
+export const ENHANCEMENTS = [];
